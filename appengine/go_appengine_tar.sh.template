@@ -1,0 +1,28 @@
+#!/bin/bash
+
+case "$0" in
+/*) self="$0" ;;
+*)  self="$PWD/$0";;
+esac
+if [[ -e "$self.runfiles/%{workspace_name}" ]]; then
+  RUNFILES="$self.runfiles/%{workspace_name}"
+  cd "$RUNFILES"
+fi
+
+ROOT=$PWD
+
+# remove double slash from TMPDIR trailing slash
+tmp_dir=$(echo ${TMPDIR:-/tmp}/%{workspace_name}.XXXXXXXX | tr -s /)
+tmp_dir="$(mktemp -d "${tmp_dir}")"
+
+cp -R $ROOT $tmp_dir
+trap "{ cd "$ROOT"; rm -rf "$tmp_dir"; }" EXIT
+
+cd "${tmp_dir}/%{workspace_name}"
+
+archive=`echo $0 | sed 's/%{target_name}.tar$/%{target_name}.deploy.tar.gz/'`
+rm -fR $archive
+
+tar -zch  --totals -f $archive .
+
+exit

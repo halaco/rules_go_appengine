@@ -1,0 +1,5 @@
+.gcloudignore
+external/**
+%{target_name}_deploy.sh
+%{target_name}.deploy
+%{extra_ignore}

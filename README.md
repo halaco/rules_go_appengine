@@ -1,1 +1,1 @@
-# rules_go_appengine
+# Bazel AppEngine Rules for GO.

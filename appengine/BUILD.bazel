@@ -1,0 +1,17 @@
+filegroup(
+    name = "go_deploy_template",
+    srcs = ["go_appengine_deploy.sh.template"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "go_tar_template",
+    srcs = ["go_appengine_tar.sh.template"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "gcloudignore_template",
+    srcs = ["gcloudignore.template"],
+    visibility = ["//visibility:public"],
+)
