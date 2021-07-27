@@ -1,0 +1,7 @@
+filegroup(
+    name = "defs",
+    srcs = glob(["appengine/**"]) + [
+        "defs.bzl"
+    ],
+    visibility = ["//visibility:public"],
+)
