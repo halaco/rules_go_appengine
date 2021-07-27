@@ -12,7 +12,7 @@ def _appengine_download_cloud_sdk(repository_ctx):
         sha256 = CLOUD_SDK_PLATFORM_SHA256,
         stripPrefix = "google-cloud-sdk",
     )
-    repository_ctx.template("BUILD", Label("//tools/bazel/appengine:cloud_sdk.BUILD"))
+    repository_ctx.template("BUILD", Label("//appengine:cloud_sdk.BUILD"))
 
 appengine_download_cloud_sdk = repository_rule(
     local = False,
