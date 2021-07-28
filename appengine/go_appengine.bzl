@@ -171,15 +171,15 @@ go_appengine_base = rule(
         "gcloud": attr.label(default = Label("@io_halaco_google_cloud_sdk//:gcloud")),
         "ignore": attr.string_list(default = []),
         "_deploy_template": attr.label(
-            default = Label("//tools/bazel/appengine:go_deploy_template"),
+            default = Label("//appengine:go_deploy_template"),
             allow_single_file = True,
         ),
         "_tar_template": attr.label(
-            default = Label("//tools/bazel/appengine:go_tar_template"),
+            default = Label("//appengine:go_tar_template"),
             allow_single_file = True,
         ),
         "_ignore_template": attr.label(
-            default = Label("//tools/bazel/appengine:gcloudignore_template"),
+            default = Label("//appengine:gcloudignore_template"),
             allow_single_file = True,
         ),
     },
